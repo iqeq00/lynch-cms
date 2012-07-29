@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+/***页面内容部分***/
+.fenye{
+	height:auto;
+	width:1000px;
+	font-size:14px;
+	color:#000;
+}
+.fenye_kuang{
+	width:45px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	background:#F5F5F5;
+	border:1px solid #DADADA;
+	float:left;
+	margin-left:10px;
+	margin-top:10px;	
+}
+.fenye_kuang a { 
+	text-decoration:none;
+}
+.fenye_kuang1{
+	width:25px;
+	height:25px;
+	line-height:25px;
+	background:#F5F5F5;
+	border:1px solid #DADADA;
+	margin-left:10px;
+	float:left;
+	text-align:center;
+	margin-top:10px;
+}
+.fenye_kuang1 a { 
+	text-decoration:none;
+}
+.fenye_kuang2{
+	float:left;
+	height:25px;
+	line-height:25px;
+	margin-left:10px;
+	margin-top:10px;
+}
+.spanred{
+	font-weight:bold; 
+	color:red;
+}
+.clear{
+	clear:both;
+}
+

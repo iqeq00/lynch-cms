@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+        
+    <context:component-scan base-package="com.lynch.cms.business.col.admin"/>    
+        
+    <!-- spring的默认实现,不配置也一样 -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="webBindingInitializer">
+			<bean class="com.lynch.cms.core.web.springmvc.BindingInitializer"/>
+		</property>
+		<!-- 配置一下对json数据的转换 -->
+	    <property name="messageConverters">
+	    	<list>
+	    		<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+	    			<property name="objectMapper">
+	    				<bean class="org.codehaus.jackson.map.ObjectMapper">
+	    					<property name="dateFormat">
+	    						<bean class="java.text.SimpleDateFormat">
+	    							<constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
+	    						</bean>
+	    					</property>
+	    				</bean>
+	    			</property>
+	    		</bean>
+	    	</list>
+	    </property>
+	</bean>
+	
+	<bean id="jspResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/admin/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- 上传拦截，如最大上传值及最小上传值 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="1000000"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+	    
+</beans>

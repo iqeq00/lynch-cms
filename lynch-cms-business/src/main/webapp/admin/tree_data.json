@@ -1,0 +1,52 @@
+[
+{
+	"id":1,
+	"text":"管理员管理",
+	"children":[{
+		"id":2,
+		"text":"管理员管理",
+		"checked":true,
+		"attributes":{
+        	"url":"admin/adminList.jsp"
+    	}
+	}]
+},
+{
+	"id":3,
+	"text":"角色管理",
+	"children":[{
+		"id":4,
+		"text":"角色管理",
+		"checked":true,
+		"attributes":{
+        	"url":"admin/roleList.jsp"
+    	}
+	}]
+},
+{
+	"id":5,
+	"text":"权限管理",
+	"children":[{
+		"id":6,
+		"text":"权限管理",
+		"checked":true,
+		"attributes":{
+        	"url":"admin/authoritiyList.jsp"
+    	}
+	}]
+},
+{
+	"id":7,
+	"text":"资源管理",
+	"children":[{
+		"id":8,
+		"text":"资源管理",
+		"checked":true,
+		"attributes":{
+        	"url":"admin/resourceList.jsp"
+    	}
+	}]
+}
+]
+
+
